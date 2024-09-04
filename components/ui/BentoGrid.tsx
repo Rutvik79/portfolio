@@ -48,6 +48,15 @@ export const BentoGridItem = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
+  const defaultOptions = {
+    loop: copied,
+    autoplay: copied,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   const handleCopy = () => {
     navigator.clipboard.writeText("shinderutviksandeep@gmail.com");
     setCopied(true);
@@ -142,16 +151,7 @@ export const BentoGridItem = ({
           {id === 6 && (
             <div className="mt-5 relative">
               <div className={`absolute -bottom-5 right-0`}>
-                <Lottie
-                  options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYmid slice",
-                    },
-                  }}
-                />
+                <Lottie options={defaultOptions} />
               </div>
 
               <MagicButton
